@@ -286,7 +286,7 @@
       </div>
 
       <form class="row row-cols-md-auto g-3 align-items-center justify-content-center" method="POST"
-        action="https://script.google.com/macros/s/AKfycbwNq9IHf_gXTRVn069Rg3hSbLkh7ULFiLkHAk2aT7Koaowi3DV6C5NWFY-UWT9Mb9Y8/exec"
+        action="#"
         id="my-form">
         <div class="col-12">
           <div class="mb-3">
@@ -518,9 +518,8 @@
     const pronoun = urlParams.get('p') || 'Bapak/Ibu/Saudara/i';
     const namaContainer = document.querySelector('.hero h4 span');
     namaContainer.innerText = `${pronoun} ${nama},`.replace(/ ,$/, ',');
-    
-    document.querySelector('#nama').value = nama;
 
+    document.querySelector('#nama').value = nama;
   </script>
 
   
