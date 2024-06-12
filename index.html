@@ -525,7 +525,41 @@
 
     document.querySelector('#nama').value = nama;
   </script>
-
+  <script>
+  // Fungsi untuk melakukan autoscroll
+  function autoScroll() {
+    // Mendapatkan elemen konten
+    var content = document.getElementById('content');
+    // Mengatur kecepatan autoscroll (dalam milidetik)
+    var scrollSpeed = 1; // Semakin kecil nilainya, semakin cepat autoscroll
+    
+    // Membuat loop untuk melakukan autoscroll
+    var scrollPos = 0; // Awal posisi scroll
+    var scrollInterval = setInterval(function() {
+      // Menggeser posisi scroll
+      content.scrollTop = scrollPos;
+      // Meningkatkan posisi scroll untuk gerakan berikutnya
+      scrollPos++;
+      // Menghentikan autoscroll ketika mencapai bagian bawah
+      if (scrollPos >= content.scrollHeight - content.clientHeight) {
+        clearInterval(scrollInterval);
+      }
+    }, scrollSpeed);
+  
+    // Event listener untuk mendeteksi scroll manual
+    content.addEventListener('scroll', function() {
+      // Hentikan autoscroll ketika ada scroll manual
+      clearInterval(scrollInterval);
+      // Set timeout untuk mengaktifkan kembali autoscroll setelah 10 detik tanpa scroll manual
+      setTimeout(function() {
+        autoScroll();
+      }, 10000); // 10 detik
+    });
+  }
+  
+  // Memanggil fungsi autoscroll saat halaman dimuat
+  window.onload = autoScroll;
+  </script>
   
 </body>
 
